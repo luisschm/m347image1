@@ -1,5 +1,5 @@
 services:
   web:
-    image: luisschm/m347image1
+    image: luisschm/m347image
     ports:
       - "8080:80"
