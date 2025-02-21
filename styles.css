@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    color: #53AC4A;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #525252;
+    color: #53AC4A;
+}
+
+.top-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2F2F2F;
+    height: 50px;
+    padding: 1rem;
+    position: fixed;
+    width: 100vw;
+    color: #53AC4A;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #2F2F2F;
+}
+
+.menu > li {
+    margin: 0 1rem;
+    overflow: hidden;
+}
+
+.menu > li a {
+    color: #53AC4A;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #53AC4A;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+    display: block;
+    background-color: #53AC4A;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+}
+
+.menu-button::before {
+    content: '';
+    margin-top: -8px;
+}
+
+.menu-button::after {
+    content: '';
+    margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+    .menu-button-container {
+        display: flex;
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        margin-top: 50px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: #2F2F2F;
+    }
+
+    #menu-toggle ~ .menu li {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    #menu-toggle:checked ~ .menu li {
+        border: 1px solid #333;
+        height: 2.5em;
+        padding: 0.5em;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .menu > li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        color: #53AC4A;
+        background-color: #222;
+    }
+
+    .menu > li:not(:last-child) {
+        border-bottom: 1px solid #444;
+    }
+}
+
+.home {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 5vh;
+    }
+
+.tactic-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tactic {
+    background-color: #2F2F2F;
+    margin: 10px;
+    padding: 2rem;
+    border-radius: 20px;
+    color: #53AC4A;
+    text-align: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .tactic {
+        width: 45%;
+    }
+}
+
+.player {
+    background-color: #2F2F2F;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.cta-button {
+    background-color: #2C8E08;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #2C8E09;
+}
+
+section {
+    padding: 40px 20px;
+    color: #53AC4A;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #53AC4A;
+}
+
+.news-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-grid article {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    color: #53AC4A;
+}
+
+.player-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.player {
+    text-align: center;
+    margin: 10px;
+    color: #53AC4A;
+}
+
+.player img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+footer {
+    background-color: #2F2F2F;
+    color: #53AC4A;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+    .news-grid {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .news-grid article {
+        width: 45%;
+    }
+
+    .player {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+    }
+
+    nav ul li {
+        margin: 0 5px;
+    }
+}
+#contact {
+    padding: 2rem 1rem;
+    background-color: #2F2F2F;
+    color: #53AC4A;
+    text-align: center;
+}
+
+#contact h2 {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #53AC4A;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.error {
+    display: none;
+    color: #ff4a4a;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+input:invalid + .error,
+textarea:invalid + .error {
+    display: block;
+}
+
+.contact{
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: #53AC4A;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #53AC4A;
+}
+
+@media (min-width: 768px) {
+    #contact form {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
